@@ -1,0 +1,3 @@
+INDEX VERSION 1.129+C:\Users\APCS1\Desktop\Nicolas_H_APCS1_2016\.metadata\.plugins\org.eclipse.jdt.core
+468246969.index
+2045158475.index
