@@ -26,5 +26,6 @@ public class Calculate {
 		double pi = 3.14159;
 		return(degreeNum * (pi / 180));
 	}
+	
 
 }

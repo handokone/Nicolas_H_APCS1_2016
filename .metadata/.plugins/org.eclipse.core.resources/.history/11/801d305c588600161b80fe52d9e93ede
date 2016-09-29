@@ -16,15 +16,7 @@ public class Calculate {
 		return((num1 + num2) / 2);
 	}
 	public static double average(double num1, double num2, double num3){
-		return((num1 + num2 + num3) / 2);
-	}
-	public static double toDegrees(double radianNum){
-		double pi = 3.14159;
-		return(radianNum * (180 / pi));
-	}
-	public static double toRadians(double degreeNum){
-		double pi = 3.14159;
-		return(degreeNum * (pi / 180));
+		return((num1 + num2+ num3) / 2);
 	}
 
 }
