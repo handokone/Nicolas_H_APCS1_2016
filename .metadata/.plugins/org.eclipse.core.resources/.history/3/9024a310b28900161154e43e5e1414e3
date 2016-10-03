@@ -9,17 +9,15 @@ import java.util.Scanner;
 public class processingNumbers {
 	public static void main(String[] args){
 		Scanner userInput = new Scanner(System.in);
-		int totalOfEven = 0;
-		int Lowest = Integer.MAX_VALUE;
-		int Highest = Integer.MIN_VALUE;
+		int total = 0;
+		int Lowest = 0;
+		int Highest = 0;
 		int largestEven = 0;
 		System.out.println("Enter the number of integers you have");
 		int totalInts = userInput.nextInt();
-		//Ask user to input the number of integers they want
-		System.out.println("Enter the integers you want to process");
 	for(int i = 1; i <= totalInts; i++){
+		System.out.println("Enter the numbers you want to process");
 		int nextNum = userInput.nextInt();
-		//Ask use to input the integers they want to process
 			if(nextNum > Highest){
 				Highest = nextNum;
 			}
@@ -27,19 +25,15 @@ public class processingNumbers {
 				Lowest = nextNum;
 			}
 			if(nextNum % 2 == 0){
-				totalOfEven += nextNum;
+				total += nextNum;
 				if(nextNum > largestEven){
 					largestEven = nextNum;
 				}
 			}
 	}
 	System.out.println("Highest: " + Highest);
-	//Prints the largest integer
 	System.out.println("Lowest: " + Lowest);
-	//Prints the smallest integer
-	System.out.println("total of even: " + totalOfEven);
-	//Prints the total sum of the even numbers
+	System.out.println("total: " + total);
 	System.out.println("Largest even: " + largestEven );
-	//Prints the largest value of even number
 	}
 }
