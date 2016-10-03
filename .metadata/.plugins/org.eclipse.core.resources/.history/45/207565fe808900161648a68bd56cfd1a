@@ -1,0 +1,44 @@
+/**
+ * 
+ * @author APCS1_Nicolas_Handoko
+ * @version 1.0
+ * @since 10/3/16
+ *
+ */
+import java.io.InputStream;
+import java.util.Scanner;
+public class processingNumbers {
+	public static void main(String[] args){
+		int total = 0;
+		int nextNum;
+		int Lowest;
+		int Highest;
+		Scanner userInput = newScanner(System.in);
+		System.out.println("Enter the number of integers you have");
+		int totalInts = userInput.nextInt();
+	for(int i = 1; i <= totalInts; i++){
+		System.out.println("Enter the numbers you want to process");
+		int nextNum1 = userInput.nextInt();
+			if(nextNum1 > Highest){
+				Highest = nextNum1;
+			}
+			if(nextNum1 < Lowest){
+				Lowest = nextNum1;
+			}
+			if(nextNum1 % 2 == 0){
+				total += nextNum1;
+				System.out.println(nextNum1);
+			}
+		
+	}
+	System.out.println("Highest: " + Highest);
+	System.out.println("Lowest: " + Lowest);
+	System.out.println("total: " + total);
+	}
+
+	private static Scanner newScanner(InputStream in) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
