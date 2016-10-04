@@ -13,10 +13,10 @@ public class ProcessingNumbers {
 		int Lowest = Integer.MAX_VALUE;
 		int Highest = Integer.MIN_VALUE;
 		int largestEven = 0;
-		System.out.println("Enter the number of integers you have ");
+		System.out.println("Enter the number of integers you have");
 		int totalInts = userInput.nextInt();
 		//Asks and allow the user to input the number of integers they want
-		System.out.println("Enter the integers you want to process ");
+		System.out.println("Enter the integers you want to process");
 	for(int i = 1; i <= totalInts; i++){
 		int nextNum = userInput.nextInt();
 		//Asks and allow the user to input the integers they want to process
