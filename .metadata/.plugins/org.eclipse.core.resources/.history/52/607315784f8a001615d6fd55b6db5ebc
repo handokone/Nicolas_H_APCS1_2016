@@ -37,11 +37,6 @@ public class Calculate {
 		//Where a, b, and c are the coefficients of a quadratic equation
 		return((b * b) - (4 * a * c));
 	}
-	public static String toImproperFrac(int wholeNum, int numerator, int denominator){
-		//Converts mixed number in improper fractions
-		int newNumer = denominator * wholeNum + numerator;
-		
-		return newNumer + "/" + denominator;
-	}
+	
 
 }

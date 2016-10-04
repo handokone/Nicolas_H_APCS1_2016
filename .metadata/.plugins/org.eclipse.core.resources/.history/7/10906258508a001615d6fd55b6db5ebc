@@ -39,9 +39,7 @@ public class Calculate {
 	}
 	public static String toImproperFrac(int wholeNum, int numerator, int denominator){
 		//Converts mixed number in improper fractions
-		int newNumer = denominator * wholeNum + numerator;
-		
-		return newNumer + "/" + denominator;
+		return(((wholeNum * denominator) + numerator) / denominator);
 	}
 
 }

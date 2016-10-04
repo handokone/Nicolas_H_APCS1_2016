@@ -21,7 +21,7 @@ public class DoMath {
 		//Calculate what 180 degrees is in radians
 		System.out.println(Calculate.discriminant(2, 4, 3));
 		//Calculate the discriminant where a = 2, b = 4, and c = 3
-		System.out.println(Calculate.toImproperFrac(2, 4, 5));
+		System.out.println(Calculate.toImproperFrac(2, 4, 5))
 	}
 
 }
