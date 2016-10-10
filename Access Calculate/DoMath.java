@@ -7,6 +7,7 @@
  */
 public class DoMath {
 	public static void main(String[] args){
+		//Part 1
 		System.out.println(Calculate.square(12));
 		//Calculate the square of 12
 		System.out.println(Calculate.cube(12));
@@ -22,6 +23,21 @@ public class DoMath {
 		System.out.println(Calculate.discriminant(2, 4, 3));
 		//Calculate the discriminant where a = 2, b = 4, and c = 3
 		System.out.println(Calculate.toImproperFrac(2, 4, 5));
+		//Converts Mixed Number into Improper fractions
+		System.out.println(Calculate.toMixedNum(4,3));
+		//Converts Improper fractions into Mixed Number
+		
+		//Part 2
+		System.out.println(Calculate.isDivisibleBy(4, 3));
+		//Determines whether or not one integer is divisible by another
+		System.out.println(Calculate.absValue(-5));
+		//Returns the absolute value of the the number
+		System.out.println(Calculate.max(1,-9));
+		//Returns the larger of the values passed
+		System.out.println(Calculate.max(54, 5, -50));
+		//Overload the max method, returns the largest of the values passed
+		System.out.println(Calculate.min(3, 7));
+		//Returns the smaller of the values passed
 	}
 
 }
