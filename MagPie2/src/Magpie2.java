@@ -1,4 +1,8 @@
-
+/**
+ * 
+ * @author Nicolas Handoko
+ * @since 10/11/16
+ */
 public class Magpie2 {
 
 	//Get a default greeting and return a greeting	
@@ -32,8 +36,11 @@ public class Magpie2 {
 		else if(statement.indexOf("Pokemon") >= 0){
 			response = "GOTTA CATCH 'EM ALL!";
 		}
-		else if(statement.indexOf("") >= 0){
-			response = "Hello? Answer me you foolish mortal! Emotions is not an asset in life, it only interferes with whatever goal you may be pursuing! Have a nice day.";
+		else if(statement.indexOf(" ") >= 0){
+			response = "Hello? Answer me you foolish mortal! Emotion is not an asset in life, it only interferes with whatever goal you may be pursuing! Have a nice day.";
+		}
+		else if(statement.indexOf("name") >= 0){
+			response = "And his name is John Cena!";
 		}
 		else {
 			response = getRandomResponse();
@@ -46,7 +53,7 @@ public class Magpie2 {
 	 * returns a non-committal string
 	 */
 	private String getRandomResponse() {
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 5;
 		double r = Math.random();
 		int whichResponse = (int) (r * NUMBER_OF_RESPONSES);
 		String response = "";
@@ -59,6 +66,8 @@ public class Magpie2 {
 			response = "Do you really think so?";
 		} else if (whichResponse == 3) {
 			response = "You don't say.";
+		} else if (whichResponse == 4){
+			response = "John Cena!!!";
 		}
 
 		return response;

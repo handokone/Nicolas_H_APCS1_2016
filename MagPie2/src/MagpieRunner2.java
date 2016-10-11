@@ -1,3 +1,8 @@
+/**
+ *  @author Nicolas Handoko
+ *  @since 10/11/16
+ * 
+ */
 import java.util.Scanner;
 
 //A simple class to run the Magpie class.
