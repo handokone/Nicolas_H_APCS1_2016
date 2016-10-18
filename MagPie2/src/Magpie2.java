@@ -36,8 +36,8 @@ public class Magpie2 {
 		else if(statement.indexOf("Pokemon") >= 0){
 			response = "GOTTA CATCH 'EM ALL!";
 		}
-		else if(statement.indexOf(" ") >= 0){
-			response = "Hello? Answer me you foolish mortal! Emotion is not an asset in life, it only interferes with whatever goal you may be pursuing! Have a nice day.";
+		else if(statement.trim().length() == 0){
+			response = "Hello? Answer me you foolish mortal!";
 		}
 		else if(statement.indexOf("name") >= 0){
 			response = "And his name is John Cena!";
@@ -53,7 +53,7 @@ public class Magpie2 {
 	 * returns a non-committal string
 	 */
 	private String getRandomResponse() {
-		final int NUMBER_OF_RESPONSES = 5;
+		final int NUMBER_OF_RESPONSES = 6;
 		double r = Math.random();
 		int whichResponse = (int) (r * NUMBER_OF_RESPONSES);
 		String response = "";
@@ -66,8 +66,10 @@ public class Magpie2 {
 			response = "Do you really think so?";
 		} else if (whichResponse == 3) {
 			response = "You don't say.";
-		} else if (whichResponse == 4){
-			response = "John Cena!!!";
+		} else if (whichResponse == 4) {
+			response = "That's nice";
+		} else if (whichResponse == 5) {
+			response = "Wow, that is really cool.";
 		}
 
 		return response;

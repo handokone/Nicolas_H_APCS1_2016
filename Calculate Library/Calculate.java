@@ -1,8 +1,8 @@
 /**
  * 
  * @author APCS1_Nicolas_Handoko
- * @version 1.1
- * @since 9/29/2016
+ * @version 1.5
+ * @since 10/18/2016
  *
  */
 public class Calculate {
