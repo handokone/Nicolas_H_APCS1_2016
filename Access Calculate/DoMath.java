@@ -8,9 +8,9 @@
 public class DoMath {
 	public static void main(String[] args){
 		//Part 1
-		System.out.println(Calculate.square(12));
+		System.out.println(Calculate.square(-2));
 		//Calculate the square of 12
-		System.out.println(Calculate.cube(12));
+		System.out.println(Calculate.cube(3));
 		//Calculate the cube of 12
 		System.out.println(Calculate.average(4, 9));
 		//Calculate the average of 4 and 9
@@ -30,7 +30,7 @@ public class DoMath {
 		//Part 2
 		System.out.println(Calculate.isDivisibleBy(4, 3));
 		//Determines whether or not one integer is divisible by another
-		System.out.println(Calculate.absValue(-5));
+		System.out.println(Calculate.absValue(-9));
 		//Returns the absolute value of the the number
 		System.out.println(Calculate.max(1,-9));
 		//Returns the larger of the values passed
@@ -38,6 +38,16 @@ public class DoMath {
 		//Overload the max method, returns the largest of the values passed
 		System.out.println(Calculate.min(3, 7));
 		//Returns the smaller of the values passed
+		
+		
+		//Part 3
+		System.out.println(Calculate.exponent(1.5, 5));
+		//Returns a value from a base number raised to a positive 
+		//integer power. Assume exponent is negative.
+		System.out.println(Calculate.factorial(5));
+		//Returns the factorial of the value passed.
+		System.out.println(Calculate.isPrime(97));
+		//Determines whether or not a integer is prime. 
 	}
 
 }

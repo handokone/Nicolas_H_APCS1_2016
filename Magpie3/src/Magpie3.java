@@ -25,29 +25,29 @@ public class Magpie3 {
 	//Code from part 2
 	public String getResponse(String statement) {
 		String response = "";
-		if (statement.indexOf("No") >= 0) {
+		if (findKeyword(statement, "No") >= 0) {
 			response = "Wow, okay. Rude.";
-		} else if (statement.indexOf("mother") >= 0
-				|| statement.indexOf("father") >= 0
-				|| statement.indexOf("sister") >= 0) {
+		} else if (findKeyword(statement, "mother") >= 0
+				|| findKeyword(statement, "father") >= 0
+				|| findKeyword(statement, "sister") >= 0) {
 			response = "Tell me more about your family.";
 		} 
-		else if (statement.indexOf("brother") >= 0){
+		else if (findKeyword(statement, "brother") >= 0){
 			response = "My brother, I miss him. I have not seen my brother since the accident.";
 		}
-		else if (statement.indexOf("Ms. Dreyer") >= 0) {
+		else if (findKeyword(statement, "Ms. Dreyer") >= 0) {
 			response = "What a lovely teacher, despite the fact that I have never seen her before.";
 		}
-		else if(statement.indexOf("Hi") >= 0) {
+		else if (findKeyword(statement, "Hi") >= 0) {
 			response = "Hello mortal! I lack emotions :D!";
 		}
-		else if(statement.indexOf("Pokemon") >= 0){
+		else if (findKeyword(statement, "Pokemon") >= 0){
 			response = "GOTTA CATCH 'EM ALL!";
 		}
-		else if(statement.trim().length() == 0){
+		else if (statement.trim().length() == 0){
 			response = "Hello? Answer me you foolish mortal!";
 		}
-		else if(statement.indexOf("name") >= 0){
+		else if (findKeyword(statement, "name") >= 0){
 			response = "And his name is John Cena!";
 		}
 		else {

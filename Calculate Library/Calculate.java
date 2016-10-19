@@ -63,6 +63,7 @@ public class Calculate {
 	//Part 2: Methods with Conditionals
 	public static boolean isDivisibleBy(int a, int b){
 		//Determines whether or not one integer is divisible by another
+		//Accepts two integers and returns a boolean
 		if(a % b == 0){
 			return true;
 		}
@@ -72,6 +73,7 @@ public class Calculate {
 	}
 	public static double absValue(double a){
 		//Returns the absolute value of the the number
+		//Accepts a double and returns a double
 		if(a >= 0){
 			return a;
 		}
@@ -81,6 +83,7 @@ public class Calculate {
 	}
 	public static int max(int a, int b){
 		//Returns the larger of the values passed
+		//Accepts two integers and returns an integer
 		if(a > b){
 			return a;
 		}
@@ -90,6 +93,7 @@ public class Calculate {
 	}
 	public static int max(int a, int b, int c){
 		//Overload the max method, returns the largest of the values passed
+		//Accepts three doubles and returns an integer
 		int maxNum = a;
 		if(b > maxNum){
 			maxNum = b;
@@ -101,6 +105,7 @@ public class Calculate {
 	}
 	public static int min(int a, int b){
 		//Returns the smaller of the values passed
+		//Accepts two integers and returns a boolean
 		if(a < b){
 			return a;
 		}
@@ -108,9 +113,51 @@ public class Calculate {
 			return b;
 		}
 	}
-	public static double round2(double a){
-		//Rounds a double correctly to 2 decimal places 
-	}
+	/*public static double round2(double a){
+		//Rounds a double correctly to 2 decimal places
+		//Accepts a double and returns a double 
+	}*/
+	
 	//Part 3: Methods that use Loops and Calls to Other Methods
+	
+	public static double exponent(double baseNum, int powerNum){
+		//Raises a double to a postive integer value. Assume the exponent is always positive.
+		//Accepts a double and an integer and returns a double
+		double totalVal = 1;
+		for(int i = 1; i <= absValue(powerNum); i++){
+			totalVal *= baseNum;
+		}
+		return totalVal;
+	}
+	public static int factorial(int baseNum){
+		//Returns the factorial of the value passed. 
+		//Accepts an integer and returns an integer.
+		int totalNum = 1;
+		for(int i = 1; i <= baseNum; i++){
+			totalNum *= i;
+		}
+		return totalNum;
+	}
+	public static boolean isPrime(int number){
+		//Determines whether or not an integer is prime
+		//Accepts an integer and returns a boolean
+		if (number < 2){
+			return false;
+		}
+		if (number == 2){
+			return true;
+		}
+		if (isDivisibleBy(number,2)){
+		//Calling method isDivisibleBy in order to check if 
+		//number is divisibe by 2 or not. 
+			return false;
+		}
+		for (int i = 3; i * i <= number; i += 2){
+			if (number % i == 0){
+				return false;
+			}
+		}
+		return true;
+	}
 
 }
