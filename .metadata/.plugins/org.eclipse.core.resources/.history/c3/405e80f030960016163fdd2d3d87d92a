@@ -5,6 +5,7 @@
  * @since 10/17/16
  *
  */
+// tranformIYouStatement and transformYouMeStatement isn't working properly
 public class Magpie4 {
 	
 	//Get a default greeting and return a greeting
