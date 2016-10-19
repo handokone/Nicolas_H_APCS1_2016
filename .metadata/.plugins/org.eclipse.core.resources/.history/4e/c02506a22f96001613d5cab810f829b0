@@ -210,7 +210,7 @@ public class Magpie4 {
 			}
 
 			// If before and after aren't letters, we've found the word
-			if (before.equals(" ") && (after.equals(" ") || after.equals(".") || after.equals("?"))) {
+			if (before.equals(" ") && after.equals(" ")) {
 				return psn;
 			}
 			// The last position didn't work, so let's find the next, if there
