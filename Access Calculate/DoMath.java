@@ -38,6 +38,7 @@ public class DoMath {
 		//Overload the max method, returns the largest of the values passed
 		System.out.println(Calculate.min(3, 7));
 		//Returns the smaller of the values passed
+		System.out.println(Calculate.round2(5.596));
 		
 		
 		//Part 3
