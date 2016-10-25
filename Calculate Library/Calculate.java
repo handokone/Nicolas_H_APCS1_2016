@@ -165,5 +165,23 @@ public class Calculate {
 		}
 		return true;
 	}
+	public static int gcf(int num1, int num2){
+		//Currently not working. 
+	//Finds the greatest common factor of two integers. 
+	//Accepts two positive integer and returns an integer. 
+	//Assume both integers are positive. 
+		if (num1 == 0){
+			return num2;
+		}
+		else if (num2 == 0){
+			return num1;
+		}
+		while (num1 != 0 || num2 != 0){
+				int num3 = num2;
+				num2 = num1/num2;
+				num1 = num3;
+			}
+		return num1 + num2;
+	}
 
 }

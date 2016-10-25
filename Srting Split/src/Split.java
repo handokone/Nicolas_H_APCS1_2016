@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class Split 
 {
@@ -15,14 +16,16 @@ public class Split
 		
 		//play around with String.split! what happens if you "I reallyreally like apples".split("really") ?
 		
+		String str = "I reallyreally like apples";
+		String[] split = str.split("really");
+		System.out.println(Arrays.toString(split));
 		
 		//Your task:
 		/*Write a method that take in a string like "applespineapplesbreadlettustomatobaconmayohambreadcheese" describing a sandwich
 		 * use String.split to split up the sandwich by the word "bread" and return what's in the middle of the sandwich and ignores what's on the outside
 		 * What if it's a fancy sandwich with multiple pieces of bread?
 		*/
-		String a = "applespineapplesbreadlettustomatobaconmayohambreadcheese";
-		"applespineapplesbreadlettustomatobaconmayohambreadcheese".split("bread");
+		
 		
 		//Your task pt 2:
 		/*Write a method that take in a string like "apples pineapples bread lettus tomato bacon mayo ham bread cheese" describing a sandwich
