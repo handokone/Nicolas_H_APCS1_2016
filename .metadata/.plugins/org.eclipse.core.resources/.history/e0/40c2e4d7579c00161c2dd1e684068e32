@@ -117,7 +117,7 @@ public class Calculate {
 	public static double round2(double num1){
 		//Rounds a double correctly to 2 decimal places
 		//Accepts a double and returns a double 
-		num1 = (num1 * 100) + 0.5;
+		num1 = num1 * 100;
 		int casted = (int) num1;
 		double newCasted = (double) casted;
 		newCasted = newCasted / 100;
@@ -173,20 +173,15 @@ public class Calculate {
 		if (num1 == 0){
 			return num2;
 		}
-		if (num2 == 0){
+		else if (num2 == 0){
 			return num1;
 		}
 		else while (num1 != 0 || num2 != 0){
 				int num3 = num2;
-				num2 = num1 % num2;
+				num2 = num1/num2;
 				num1 = num3;
 			}
-		return (num1 + num2);
-	}
-	public static double sqrt(double a){
-		//Accepts a double and returns a double
-		//Returns an approximation of the square root of the value passed to two decimal places.
-		
+		return num1 + num2;
 	}
 
 }
