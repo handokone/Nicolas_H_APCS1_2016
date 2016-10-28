@@ -5,7 +5,6 @@
  * @since 10/17/16
  *
  */
-// tranformIYouStatement and transformYouMeStatement isn't working properly
 public class Magpie4 {
 	
 	//Get a default greeting and return a greeting
@@ -210,7 +209,7 @@ public class Magpie4 {
 			}
 
 			// If before and after aren't letters, we've found the word
-			if (before.equals(" ") && after.equals(" ")) {
+			if (before.equals(" ") && (after.equals(" ") || after.equals(".") || after.equals("?"))) {
 				return psn;
 			}
 			// The last position didn't work, so let's find the next, if there

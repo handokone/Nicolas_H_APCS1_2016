@@ -38,6 +38,7 @@ public class DoMath {
 		//Overload the max method, returns the largest of the values passed
 		System.out.println(Calculate.min(3, 7));
 		//Returns the smaller of the values passed
+		System.out.println(Calculate.round2(5.5));
 		
 		
 		//Part 3
@@ -48,6 +49,7 @@ public class DoMath {
 		//Returns the factorial of the value passed.
 		System.out.println(Calculate.isPrime(97));
 		//Determines whether or not a integer is prime. 
+		System.out.println(Calculate.gcf(12, 15));
 	}
 
 }

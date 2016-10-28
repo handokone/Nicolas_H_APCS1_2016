@@ -1,8 +1,8 @@
 /**
  * 
  * @author APCS1_Nicolas_Handoko
- * @version 1.5
- * @since 10/18/2016
+ * @version 1.7
+ * @since 10/20/2016
  *
  */
 public class Calculate {
@@ -81,53 +81,59 @@ public class Calculate {
 			return(a * -1);
 		}
 	}
-	public static int max(int a, int b){
+	public static int max(int num1, int num2){
 		//Returns the larger of the values passed
 		//Accepts two integers and returns an integer
-		if(a > b){
-			return a;
+		if(num1 > num2){
+			return num1;
 		}
 		else{
-			return b; 
+			return num2; 
 		}
 	}
-	public static int max(int a, int b, int c){
+	public static int max(int num1, int num2, int num3){
 		//Overload the max method, returns the largest of the values passed
 		//Accepts three doubles and returns an integer
-		int maxNum = a;
-		if(b > maxNum){
-			maxNum = b;
+		int maxNum = num1;
+		if(num2 > maxNum){
+			maxNum = num2;
 		}
-		if(c > b && c > a){
-			maxNum = c;
+		if(num3 > num2 && num3 > num1){
+			maxNum = num3;
 		}
 		return maxNum;
 	}
-	public static int min(int a, int b){
+	public static int min(int num1, int num2){
 		//Returns the smaller of the values passed
 		//Accepts two integers and returns a boolean
-		if(a < b){
-			return a;
+		if(num1 < num2){
+			return num1;
 		}
 		else{
-			return b;
+			return num2;
 		}
 	}
-	/*public static double round2(double a){
+	//This still doesn't work properly 
+	public static double round2(double num1){
 		//Rounds a double correctly to 2 decimal places
 		//Accepts a double and returns a double 
-	}*/
+		num1 = (num1 * 100) + 0.5;
+		int casted = (int) num1;
+		double newCasted = (double) casted;
+		newCasted = newCasted / 100;
+		return newCasted;
+	}
 	
 	//Part 3: Methods that use Loops and Calls to Other Methods
 	
-	public static double exponent(double baseNum, int powerNum){
+	public static double exponent(double baseNum, int exponentNum){
 		//Raises a double to a postive integer value. Assume the exponent is always positive.
 		//Accepts a double and an integer and returns a double
-		double totalVal = 1;
-		for(int i = 1; i <= absValue(powerNum); i++){
-			totalVal *= baseNum;
+		double totalValue = 1;
+		for(int i = 1; i <= absValue(exponentNum); i++){
+			totalValue *= baseNum;
 		}
-		return totalVal;
+		return totalValue;
 	}
 	public static int factorial(int baseNum){
 		//Returns the factorial of the value passed. 
@@ -149,7 +155,7 @@ public class Calculate {
 		}
 		if (isDivisibleBy(number,2)){
 		//Calling method isDivisibleBy in order to check if 
-		//number is divisibe by 2 or not. 
+		//number is divisible by 2 or not. 
 			return false;
 		}
 		for (int i = 3; i * i <= number; i += 2){
@@ -158,6 +164,29 @@ public class Calculate {
 			}
 		}
 		return true;
+	}
+	public static int gcf(int num1, int num2){
+		//Currently not working. 
+	//Finds the greatest common factor of two integers. 
+	//Accepts two positive integer and returns an integer. 
+	//Assume both integers are positive. 
+		if (num1 == 0){
+			return num2;
+		}
+		if (num2 == 0){
+			return num1;
+		}
+		else while (num1 != 0 || num2 != 0){
+				int num3 = num2;
+				num2 = num1 % num2;
+				num1 = num3;
+			}
+		return (num1 + num2);
+	}
+	public static double sqrt(double a){
+		//Accepts a double and returns a double
+		//Returns an approximation of the square root of the value passed to two decimal places.
+		
 	}
 
 }
