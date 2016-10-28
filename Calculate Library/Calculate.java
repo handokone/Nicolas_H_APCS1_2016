@@ -61,10 +61,13 @@ public class Calculate {
 		return wholeNum + "_" + newNumer + "/" + denominator;
 	}
 	//Part 2: Methods with Conditionals
-	public static boolean isDivisibleBy(int a, int b){
+	public static boolean isDivisibleBy(int dividend, int divisor){
 		//Determines whether or not one integer is divisible by another
 		//Accepts two integers and returns a boolean
-		if(a % b == 0){
+		if(divisor < 0){
+			throw new IllegalArgumentException("Input is negative");
+		}
+		if(dividend % divisor == 0){
 			return true;
 		}
 		else{
@@ -123,8 +126,11 @@ public class Calculate {
 	public static double exponent(double baseNum, int powerNum){
 		//Raises a double to a postive integer value. Assume the exponent is always positive.
 		//Accepts a double and an integer and returns a double
+		if(powerNum < 0){
+			throw new IllegalArgumentException("Input is negative");
+		}
 		double totalVal = 1;
-		for(int i = 1; i <= absValue(powerNum); i++){
+		for(int i = 1; i <= powerNum; i++){
 			totalVal *= baseNum;
 		}
 		return totalVal;
@@ -132,6 +138,9 @@ public class Calculate {
 	public static int factorial(int baseNum){
 		//Returns the factorial of the value passed. 
 		//Accepts an integer and returns an integer.
+		if (baseNum < 0){
+			throw new IllegalArgumentException("Input is negative");
+		}
 		int totalNum = 1;
 		for(int i = 1; i <= baseNum; i++){
 			totalNum *= i;
