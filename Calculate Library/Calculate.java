@@ -7,6 +7,7 @@
  */
 public class Calculate {
 	//Part 1:Methods, Headers, and Basic Math 
+	
 	public static int square(int num){
 		//Square an integer
 		//Accepts an integer and returns an integer
@@ -60,7 +61,9 @@ public class Calculate {
 		
 		return wholeNum + "_" + newNumer + "/" + denominator;
 	}
+	
 	//Part 2: Methods with Conditionals
+	
 	public static boolean isDivisibleBy(int a, int b){
 		//Determines whether or not one integer is divisible by another
 		//Accepts two integers and returns a boolean
@@ -112,8 +115,7 @@ public class Calculate {
 		else{
 			return num2;
 		}
-	}
-	//This still doesn't work properly 
+	} 
 	public static double round2(double num1){
 		//Rounds a double correctly to 2 decimal places
 		//Accepts a double and returns a double 
@@ -129,8 +131,11 @@ public class Calculate {
 	public static double exponent(double baseNum, int exponentNum){
 		//Raises a double to a postive integer value. Assume the exponent is always positive.
 		//Accepts a double and an integer and returns a double
+		if (exponentNum < 0){
+			throw new IllegalArgumentException("Input is negative");
+		}
 		double totalValue = 1;
-		for(int i = 1; i <= absValue(exponentNum); i++){
+		for(int i = 1; i <= exponentNum; i++){
 			totalValue *= baseNum;
 		}
 		return totalValue;
@@ -139,6 +144,9 @@ public class Calculate {
 		//Returns the factorial of the value passed. 
 		//Accepts an integer and returns an integer.
 		int totalNum = 1;
+		if (baseNum < 0){
+			throw new IllegalArgumentException("Input is negative");
+		}
 		for(int i = 1; i <= baseNum; i++){
 			totalNum *= i;
 		}
@@ -165,8 +173,7 @@ public class Calculate {
 		}
 		return true;
 	}
-	public static int gcf(int num1, int num2){
-		//Currently not working. 
+	public static int gcf(int num1, int num2){ 
 	//Finds the greatest common factor of two integers. 
 	//Accepts two positive integer and returns an integer. 
 	//Assume both integers are positive. 
@@ -176,17 +183,30 @@ public class Calculate {
 		if (num2 == 0){
 			return num1;
 		}
-		else while (num1 != 0 || num2 != 0){
-				int num3 = num2;
-				num2 = num1 % num2;
-				num1 = num3;
-			}
-		return (num1 + num2);
+		if (isDivisibleBy(num1, num2)){
+			return num2;
+		}
+		else{
+			return gcf(num2, num1%num2);
+		}
 	}
 	public static double sqrt(double a){
 		//Accepts a double and returns a double
 		//Returns an approximation of the square root of the value passed to two decimal places.
+		if(a < 0){
+			throw new IllegalArgumentException("Input is negative");
+		}
+		if(a == 0){
+			return a;
+		}
 		
+		double num1;
+		double rootNum = a / 2;
+		do{
+			num1 = rootNum;
+			rootNum = (num1 * (a / num1)) / 2.0;
+		}while ((num1 - rootNum) != 0);
+		return round2(rootNum);
 	}
 
 }

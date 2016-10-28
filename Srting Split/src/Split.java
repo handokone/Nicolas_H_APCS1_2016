@@ -25,9 +25,7 @@ public class Split
 		 * use String.split to split up the sandwich by the word "bread" and return what's in the middle of the sandwich and ignores what's on the outside
 		 * What if it's a fancy sandwich with multiple pieces of bread?
 		*/
-		//public static String splitting(String a){
-			//String str = "applespineapplesbreadlettustomatobaconmayohambreadcheese"
-		//}
+		splitBread("applespineapplesbreadlettustomatobaconmayohambreadcheese");
 		
 		//Your task pt 2:
 		/*Write a method that take in a string like "apples pineapples bread lettus tomato bacon mayo ham bread cheese" describing a sandwich
@@ -36,7 +34,30 @@ public class Split
 		*/
 
 		
-
 	}
+	public static void splitBread(String bread){
+		String str = bread;
+		String[] arrayBread = str.split("bread");
+		//Test to see if it is a sandwich or not(two breads at least)
+		if (arrayBread.length <= 2){
+			System.out.println("Not a sandwich");
+		}
+		else {
+			for(int i = 1; i < arrayBread.length - 1; i++){
+				String breadMiddle = arrayBread[i];
+				if(arrayBread[i].equals(" ")){
+				}
+				else{
+					System.out.println("The sandwich includes: " + breadMiddle);
+					//Only prints the text between bread. 
+				}
+			}
+		}
+	}
+	
+	public static void splitSpaces(String sandwich){
+		String[] 
+	}
+
 
 }

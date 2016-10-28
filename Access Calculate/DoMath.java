@@ -49,7 +49,8 @@ public class DoMath {
 		//Returns the factorial of the value passed.
 		System.out.println(Calculate.isPrime(97));
 		//Determines whether or not a integer is prime. 
-		System.out.println(Calculate.gcf(12, 15));
+		System.out.println(Calculate.gcf(15, 12));
+		//Finds the greatest common factor between two integers. 
 	}
 
 }
