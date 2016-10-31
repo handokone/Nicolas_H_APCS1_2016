@@ -5,6 +5,7 @@ public class LotsOfCopies {
 		int num = 7;
 		String strMain = "APCS";
 		int[] arrMain = {1, 2, 3, 4, 5};
+		changeMe(5);
 	}
 	public static void changeMe(int x, String str, int[] arr){
 		int num = x;
@@ -13,4 +14,5 @@ public class LotsOfCopies {
 		str = "APCS1 at Mills";
 		arr = new int[5];
 	}
+
 }

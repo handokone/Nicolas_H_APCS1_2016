@@ -1,7 +1,3 @@
-/**
- * @author APCS1_Nicolas Handoko
- * @Version 1.8
- */
 import java.util.Arrays;
 
 public class Split 
@@ -60,18 +56,7 @@ public class Split
 	}
 	
 	public static void splitSpaces(String sandwich){
-		String str = " ";
-		String sandwichInput = sandwich;
-		String[] arraySpaces = sandwich.split(" ");
-		String[] breadArray = sandwich.split("bread");
-		if (arraySpaces.length <= 2){
-			System.out.println("It is not a sandwich");
-		}
-		else{
-			for(int i = 1; i < breadArray.length - 1; i++){
-				
-			}
-		}
+		String[] 
 	}
 
 
