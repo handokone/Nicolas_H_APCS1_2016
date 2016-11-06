@@ -1,6 +1,6 @@
 /**
  * @author APCS1_Nicolas_Handoko
- * @Version 1.0
+ * @Version 1.6
  * 
  * @purpose Manipulate arrays: add two arrays, append arrays, remove an int in an array at a given idx, 
  * add all the even number in an array, and rotate the value of in an array to the righ
@@ -22,11 +22,10 @@ public class ArraysLab3
 		assert (arr1.length > 0);
 		assert (arr2.length > 0);
 		assert (arr1.length == arr2.length);
-		int[] arr3 = new int[arr1.length - 1];
+		int[] arr3 = new int[arr1.length];
 		for(int i = 0; i <= arr1.length - 1; i++){
 			arr3[i] = arr1[i] + arr2[i];
 		}
-		System.out.println(Arrays.toString(arr3));
 		return arr3;
 	}
 	
@@ -39,15 +38,15 @@ public class ArraysLab3
 	public static int[] append(int[] arr, int num)
 	{
 		assert (arr.length > 0);
-		int[] finalArr = new int[arr.length];
-		//Create new array for the append
+		int[] finalArr = new int[arr.length + 1];
+		//Create new array for the append that's one value longer 
 		for(int i = 0; i <= arr.length - 1; i++){
 			finalArr[i] = arr[i];
 			//This sets every element at a certain index at finalArr = to arr.
 		}
-		finalArr[arr.length - 1] = num;
+		finalArr[arr.length] = num;
 		//Since finalArr is 1 index longer, the last value equals to the int num.
-		System.out.println(Arrays.toString(finalArr));
+		return finalArr;
 	}
 	
 	/*
@@ -59,7 +58,16 @@ public class ArraysLab3
 	public static int[] remove(int[] arr, int idx)
 	{
 		assert (arr.length >= 2);
-		
+		int[] finalArr = new int[arr.length -1];
+		for(int i = 0; i < finalArr.length; i++){
+			if(i >= idx){
+				finalArr[i] = arr[i + 1];
+			}
+			else{
+				finalArr[i] = arr[i];
+			}
+		}
+		return finalArr;
 	}
 	
 	/*
@@ -74,11 +82,8 @@ public class ArraysLab3
 		for(int i = 0; i <= arr.length - 1; i++){
 			if(arr[i] % 2 == 0){
 				evenSum += arr[i];
-			}else{
-				break;
 			}
 		}
-		System.out.println(evenSum);
 		return evenSum;
 	}
 	
@@ -94,6 +99,7 @@ public class ArraysLab3
 		assert (arr.length > 0);
 		int last = arr[arr.length - 1];
 		for(int i = arr.length - 1; i >= 1; i--){
+			//Changes Array values from right to left, not left to right. 
 			arr[i] = arr[i - 1];
 		}
 		arr[0] = last;
@@ -126,9 +132,21 @@ public class ArraysLab3
 	{
 		int[] a1 = {5, 10, 15, 20, 25, 30, 35, 40};
 		int[] a2 = {7, 14, 21, 28, 35, 42, 49, 56};
+		int[] sumArr = sum(a1, a2);
 		
 		int appendNum = 200;
-		int removeIdx = 5;
+		int[] appendArr = append(a1, appendNum);
 		
+		int removeIdx = 5;
+		int[] removeArr = remove(a2, removeIdx);
+		
+		int sumOfEvens = sumEven(appendArr);
+		rotateRight(a1);
+		
+		System.out.println(Arrays.toString(sumArr));
+		System.out.println(Arrays.toString(appendArr));
+		System.out.println(Arrays.toString(removeArr));
+		System.out.println(sumOfEvens);
+		System.out.println(Arrays.toString(a1));
 	}
 }

@@ -51,6 +51,10 @@ public class DoMath {
 		//Determines whether or not a integer is prime. 
 		System.out.println(Calculate.gcf(15, 12));
 		//Finds the greatest common factor between two integers. 
+		System.out.println(Calculate.sqrt(56));
+		//Finds the square root of a number. 
+		System.out.println(Calculate.quadForm(1, -3, -10));
+		//Find the real roots using the quadratic formula for a quadratic equation in standard form. 
 	}
 
 }

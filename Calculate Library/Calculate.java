@@ -1,9 +1,12 @@
 /**
  * 
  * @author APCS1_Nicolas_Handoko
- * @version 1.7
- * @since 10/20/2016
+ * @version 2.6
+ * @since 11/6/2016
  *
+ * @purpose Create your own set of math/calculate library to use 
+ * instead of the built in library already in java. 
+ * Includes squares, average, rounding, square root, discriminant, quadratic formula, and others. 
  */
 public class Calculate {
 	//Part 1:Methods, Headers, and Basic Math 
@@ -67,6 +70,10 @@ public class Calculate {
 	public static boolean isDivisibleBy(int a, int b){
 		//Determines whether or not one integer is divisible by another
 		//Accepts two integers and returns a boolean
+		if(b == 0){
+			throw new IllegalArgumentException("Input is negative, cannot divide by 0");
+			//Exception when passed a negative number as the divisor.
+		}
 		if(a % b == 0){
 			return true;
 		}
@@ -122,7 +129,7 @@ public class Calculate {
 		num1 = (num1 * 100) + 0.5;
 		int casted = (int) num1;
 		double newCasted = (double) casted;
-		newCasted = newCasted / 100;
+		newCasted = newCasted / 100.00;
 		return newCasted;
 	}
 	
@@ -133,6 +140,7 @@ public class Calculate {
 		//Accepts a double and an integer and returns a double
 		if (exponentNum < 0){
 			throw new IllegalArgumentException("Input is negative");
+			//Throws exception when the exponent is negative.
 		}
 		double totalValue = 1;
 		for(int i = 1; i <= exponentNum; i++){
@@ -146,6 +154,7 @@ public class Calculate {
 		int totalNum = 1;
 		if (baseNum < 0){
 			throw new IllegalArgumentException("Input is negative");
+			//Throws exception when the baseNum is a negative.
 		}
 		for(int i = 1; i <= baseNum; i++){
 			totalNum *= i;
@@ -195,8 +204,9 @@ public class Calculate {
 		//Returns an approximation of the square root of the value passed to two decimal places.
 		if(a < 0){
 			throw new IllegalArgumentException("Input is negative");
+			//Throws exception when the num is negative. No root of negative number. 
 		}
-		if(a == 0){
+		else if(a == 0){
 			return a;
 		}
 		
@@ -204,9 +214,52 @@ public class Calculate {
 		double rootNum = a / 2;
 		do{
 			num1 = rootNum;
-			rootNum = (num1 * (a / num1)) / 2.0;
+			rootNum = (num1 + (a / num1)) / 2.0;
 		}while ((num1 - rootNum) != 0);
 		return round2(rootNum);
+	}
+	//Part 4: Throwing Exceptions
+	//Factorial, exponent, isDivisibleBy, and sqrt now have exceptions when passed an
+	//inappropriate value an argument. 
+	
+	public static String quadForm(int a, int b, int c){
+		//Uses coefficient of a standard form quadratic equation for the inputs. 
+		//Uses the quadratic formula to approximate the real roots, if any. 
+		//Accepts three integers and return a String. 
+		double root1 = 0;
+		double root2 = 0;
+		//Two doubles if there is two roots. 
+		String finalVal1 = "";
+		String finalVal2 = "";
+		//Two strings if there is two roots. 
+		double x = (double)(a);
+		double y = (double)(b);
+		double z = (double)(c);
+		//Casts the ints to double for more accurate answers during calculations and rounding 
+		//roots to two decimal places.
+		//Also the methods that will be called later needs double instead of ints for input. 
+		if(discriminant(a, b, c) < 0){
+			return "No real roots";
+		}
+		else if(discriminant(a, b, c) == 0){
+			root1 = -b / (2*a);
+			finalVal1 = String.valueOf(round2(root1));
+			return finalVal1;
+		}
+		else{
+			root1 = round2((-b - sqrt(discriminant(x, y, z))) / (2 * x));
+			root2 = round2((-b + sqrt(discriminant(x, y, z))) / (2 * x));
+			if(root2 < root1){
+				finalVal1 = String.valueOf(root1);
+				finalVal2 = String.valueOf(root2);
+				return finalVal2 + "and" + finalVal1;
+			}
+			else{
+				finalVal1 = String.valueOf(root1);
+				finalVal2 = String.valueOf(root2);
+				return finalVal1 + " and " + finalVal2;
+			}
+		}
 	}
 
 }
