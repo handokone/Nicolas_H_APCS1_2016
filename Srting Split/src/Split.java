@@ -1,6 +1,7 @@
 /**
  * @author APCS1_Nicolas Handoko
- * @Version 1.8
+ * @Version 2.1
+ * 
  */
 import java.util.Arrays;
 
@@ -36,6 +37,7 @@ public class Split
 		 * use String.split to split up the sandwich at the spaces, " ", and return what's in the middle of the sandwich and ignores what's on the outside
 		 * Again, what if it's a fancy sandwich with multiple pieces of bread?
 		*/
+		splitSpaces("apples pineapples bread lettus tomato bacon mayo ham bread cheese");
 
 		
 	}
@@ -60,18 +62,31 @@ public class Split
 	}
 	
 	public static void splitSpaces(String sandwich){
-		String str = " ";
-		String sandwichInput = sandwich;
+		String str = "";
+		String strNoSpaces = " ";
 		String[] arraySpaces = sandwich.split(" ");
 		String[] breadArray = sandwich.split("bread");
+		for(int i = 0; i < arraySpaces.length; i++){
+			strNoSpaces += arraySpaces[i];
+		}
+		strNoSpaces = " " + strNoSpaces + " ";
+		//Add spaces to the end just in case it will affect the code
 		if (arraySpaces.length <= 2){
 			System.out.println("It is not a sandwich");
+			//Check if the String is a sandwich. 
 		}
 		else{
 			for(int i = 1; i < breadArray.length - 1; i++){
-				
+				if(breadArray[i].equals("") && i == breadArray.length - 2){
+					System.out.println("It is not a sandwich");
+				}
+				else{
+					str += breadArray[i];
+				}
 			}
 		}
+		System.out.println("The sandwich includes: " + str);
+		//Prints the components inside the two bread including the spaces
 	}
 
 
