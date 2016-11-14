@@ -1,9 +1,12 @@
 /**
  * 
  * @author APCS1_Nicolas_Handoko
- * @version 1.7
- * @since 10/20/2016
+ * @version 2.6
+ * @since 11/6/2016
  *
+ * @purpose Create your own set of math/calculate library to use 
+ * instead of the built in library already in java. 
+ * Includes squares, average, rounding, square root, discriminant, quadratic formula, and others. 
  */
 public class Calculate {
 	//Part 1:Methods, Headers, and Basic Math 
@@ -98,10 +101,10 @@ public class Calculate {
 			return num2; 
 		}
 	}
-	public static int max(int num1, int num2, int num3){
+	public static double max(double num1, double num2, double num3){
 		//Overload the max method, returns the largest of the values passed
 		//Accepts three doubles and returns an integer
-		int maxNum = num1;
+		double maxNum = num1;
 		if(num2 > maxNum){
 			maxNum = num2;
 		}
@@ -126,7 +129,7 @@ public class Calculate {
 		num1 = (num1 * 100) + 0.5;
 		int casted = (int) num1;
 		double newCasted = (double) casted;
-		newCasted = newCasted / 100;
+		newCasted = newCasted / 100.00;
 		return newCasted;
 	}
 	
@@ -254,7 +257,7 @@ public class Calculate {
 			else{
 				finalVal1 = String.valueOf(root1);
 				finalVal2 = String.valueOf(root2);
-				return finalVal1 + "and" + finalVal2;
+				return finalVal1 + " and " + finalVal2;
 			}
 		}
 	}

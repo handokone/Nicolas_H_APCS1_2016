@@ -62,22 +62,18 @@ public class Calculate {
 		int wholeNum = numerator / denominator;
 		int newNumer = numerator % denominator;
 		
-		if(newNumer % denominator != 0){
-			return wholeNum + "_" + newNumer + "/" + denominator;
-		} else{
-			return wholeNum + "";
-		}
+		return wholeNum + "_" + newNumer + "/" + denominator;
 	}
 	public static String foil(int a, int b, int c, int d, String x){
 		int i = a * c;
 		int j = (a * d) + (b * c);
 		int k = b * d;
 		if(j < 0 && k < 0){
-			return (i + x + "^2 – " + (j * -1) + x + " – " + (k * -1));
+			return (i + x + "^2 - " + (j * -1) + x + " - " + (k * -1));
 		} else if(j < 0){
-			return (i + x + "^2 – " + (j * -1) + x + " + " + k);
+			return (i + x + "^2 - " + (j * -1) + x + " + " + k);
 		} else if(k < 0){
-			return (i + x + "^2 + " + j + x + " – " + (k * -1));
+			return (i + x + "^2 + " + j + x + " - " + (k * -1));
 		} else{
 			return (i + x + "^2 + " + j + x + " + " + k);
 		}
@@ -235,7 +231,6 @@ public class Calculate {
 		}while ((num1 - rootNum) != 0);
 		return round2(rootNum);
 	}
-	
 	//Part 4: Throwing Exceptions
 	//Factorial, exponent, isDivisibleBy, and sqrt now have exceptions when passed an
 	//inappropriate value an argument. 
@@ -257,15 +252,15 @@ public class Calculate {
 		//roots to two decimal places.
 		//Also the methods that will be called later needs double instead of ints for input. 
 		if(discriminant(a, b, c) < 0){
-			return "no real roots";
+			return "No real roots";
 		}
 		else if(discriminant(a, b, c) == 0){
 			root1 = -b / (2*a);
-			finalVal1 = String.valueOf(round2(root1) - .01);
+			finalVal1 = String.valueOf(round2(root1));
 			return finalVal1;
 		}
 		else{
-			root1 = round2((-b - sqrt(discriminant(x, y, z))) / (2 * x)) - .01;
+			root1 = round2((-b - sqrt(discriminant(x, y, z))) / (2 * x));
 			root2 = round2((-b + sqrt(discriminant(x, y, z))) / (2 * x));
 			if(root2 < root1){
 				finalVal1 = String.valueOf(root1);
