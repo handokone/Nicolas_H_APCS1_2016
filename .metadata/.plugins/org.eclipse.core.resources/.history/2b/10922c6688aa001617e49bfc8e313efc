@@ -9,7 +9,7 @@ public class FracCalc {
     	
     	Scanner userInput = new Scanner(System.in);
     	System.out.println("Please input your equation: ");
-    	produceAnswer(userInput.nextLine());
+    	System.out.prtinln(produceAnswer(userInput.nextLine()));
     	
 
     }
