@@ -7,9 +7,13 @@ public class FracCalc {
     {
         // TODO: Read the input from the user and call produceAnswer with an equation
     	
-    	Scanner userInput = new Scanner(System.in);
-    	System.out.println("Please input your equation: ");
-    	produceAnswer(userInput.nextLine());
+    	String userInput = "";
+    	Scanner scan = new Scanner(System.in);
+    	while(userInput != "quit"){
+    		System.out.println("Please input your equation: ");
+    		userInput = scan.nextLine();
+    		produceAnswer(userInput);
+    	}
     	
 
     }
@@ -30,49 +34,49 @@ public class FracCalc {
         String operand1 = stringSplit[0];
         String operator = stringSplit[1];
         String operand2 = stringSplit[2];
-        String[] firstSplitOperand1 = operand1.split("_");
-        String[] secondSplitOperand1 = operand1.split("/");
+        String[] splitOperand1 = operand1.split("_");
+        String[] splitOperand1Again = splitOperand1[1].split("/");
         String wholeNum1;
         String numerator1;
         String denominator1;
-        if(firstSplitOperand1.length == 2){
-        	wholeNum1 = firstSplitOperand1[0];
-        	if(secondSplitOperand1.length == 2){
-        		numerator1 = secondSplitOperand1[0];
-        		denominator1 = secondSplitOperand1[1];
+        if(splitOperand1.length == 2){
+        	wholeNum1 = splitOperand1[0];
+        	if(splitOperand1Again.length == 2){
+        		numerator1 = splitOperand1Again[0];
+        		denominator1 = splitOperand1Again[1];
         	} else{
         		numerator1 = "0";
         		denominator1 = "1";
         	}
         } else{
-        	if(secondSplitOperand1.length == 2){
+        	if(splitOperand1Again.length == 2){
         		wholeNum1 = "0";
-        		numerator1 = secondSplitOperand1[0];
-        		denominator1 = secondSplitOperand1[1];
+        		numerator1 = splitOperand1Again[0];
+        		denominator1 = splitOperand1Again[1];
         	} else{
-        		wholeNum1 = firstSplitOperand1[0];
+        		wholeNum1 = splitOperand1[0];
         		numerator1 = "0";
         		denominator1 = "1";
         	}
         }
-        String[] firstSplitOperand2 = operand2.split("_");
-        String[] secondSplitOperand2 = operand2.split("/");
-        if(firstSplitOperand2.length == 2){
-        	wholeNum1 = firstSplitOperand2[0];
-        	if(secondSplitOperand2.length == 2){
-        		numerator1 = secondSplitOperand2[0];
-        		denominator1 = secondSplitOperand2[1];
+        String[] splitOperand2 = operand2.split("_");
+        String[] splitOperand2Again = splitOperand2[1].split("/");
+        if(splitOperand2.length == 2){
+        	wholeNum1 = splitOperand2[0];
+        	if(splitOperand2Again.length == 2){
+        		numerator1 = splitOperand2Again[0];
+        		denominator1 = splitOperand2Again[1];
         	} else{
         		numerator1 = "0";
         		denominator1 = "1";
         	}
         } else{
-        	if(secondSplitOperand2.length == 2){
+        	if(splitOperand2.length == 2){
         		wholeNum1 = "0";
-        		numerator1 = secondSplitOperand2[0];
-        		denominator1 = secondSplitOperand2[1];
+        		numerator1 = splitOperand2Again[0];
+        		denominator1 = splitOperand2Again[1];
         	} else{
-        		wholeNum1 = firstSplitOperand2[0];
+        		wholeNum1 = splitOperand2[0];
         		numerator1 = "0";
         		denominator1 = "1";
         	}
