@@ -35,37 +35,34 @@ public class FracCalc {
         String operator = stringSplit[1];
         String operand2 = stringSplit[2];
         String[] splitOperand1 = operand1.split("_");
-        String wholeNum;
-        String numerator;
-        String denominator;
+        String[] splitOperand1Again = splitOperand1[1].split("/");
         String wholeNum1;
         String numerator1;
         String denominator1;
         if(splitOperand1.length == 2){
-        	wholeNum = splitOperand1[0];
-            String[] splitOperand1Again = splitOperand1[1].split("/");
+        	wholeNum1 = splitOperand1[0];
         	if(splitOperand1Again.length == 2){
-        		numerator = splitOperand1Again[0];
-        		denominator = splitOperand1Again[1];
+        		numerator1 = splitOperand1Again[0];
+        		denominator1 = splitOperand1Again[1];
         	} else{
-        		numerator = splitOperand1Again[0];
-        		denominator = "1";
+        		numerator1 = "0";
+        		denominator1 = "1";
         	}
         } else{
-            String[] splitOperand1Again = splitOperand1[1].split("/");
-            wholeNum = "0";
         	if(splitOperand1Again.length == 2){
-        		numerator = splitOperand1Again[0];
-        		denominator = splitOperand1Again[1];
+        		wholeNum1 = "0";
+        		numerator1 = splitOperand1Again[0];
+        		denominator1 = splitOperand1Again[1];
         	} else{
-        		numerator = splitOperand1Again[0];
-        		denominator = "1";
+        		wholeNum1 = splitOperand1[0];
+        		numerator1 = "0";
+        		denominator1 = "1";
         	}
         }
         String[] splitOperand2 = operand2.split("_");
+        String[] splitOperand2Again = splitOperand2[1].split("/");
         if(splitOperand2.length == 2){
         	wholeNum1 = splitOperand2[0];
-            String[] splitOperand2Again = splitOperand2[1].split("/");
         	if(splitOperand2Again.length == 2){
         		numerator1 = splitOperand2Again[0];
         		denominator1 = splitOperand2Again[1];
@@ -74,7 +71,6 @@ public class FracCalc {
         		denominator1 = "1";
         	}
         } else{
-            String[] splitOperand2Again = splitOperand2[1].split("/");
         	if(splitOperand2.length == 2){
         		wholeNum1 = "0";
         		numerator1 = splitOperand2Again[0];

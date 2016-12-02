@@ -8,9 +8,8 @@ public class FracCalcCheck1 {
         // TODO: Read the input from the user and call produceAnswer with an equation
     	
     	Scanner userInput = new Scanner(System.in);
-    	String cookie = userInput.nextLine();
-    	//System.out.println("Please input your equation: ");
-    	System.out.println(produceAnswer(cookie));
+    	System.out.println("Please input your equation: ");
+    	produceAnswer(userInput.nextLine());
     	
 
     }

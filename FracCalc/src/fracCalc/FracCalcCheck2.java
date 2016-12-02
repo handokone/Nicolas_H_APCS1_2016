@@ -10,12 +10,10 @@ public class FracCalcCheck2 {
     	String userInput = "";
     	Scanner scan = new Scanner(System.in);
     	while(userInput != "quit"){
-    		System.out.println("Please input your equation: ");
+    		//System.out.println("Please input your equation: ");
     		userInput = scan.nextLine();
-    		produceAnswer(userInput);
+    		System.out.println(produceAnswer(userInput));
     	}
-    	
-
     }
     
     // ** IMPORTANT ** DO NOT DELETE THIS FUNCTION.  This function will be used to test your code
@@ -35,7 +33,6 @@ public class FracCalcCheck2 {
         String operator = stringSplit[1];
         String operand2 = stringSplit[2];
         String[] splitOperand1 = operand1.split("_");
-        String[] splitOperand1Again = splitOperand1[1].split("/");
         String wholeNum;
         String numerator;
         String denominator;
@@ -44,44 +41,46 @@ public class FracCalcCheck2 {
         String denominator1;
         if(splitOperand1.length == 2){
         	wholeNum = splitOperand1[0];
-        	if(splitOperand1Again.length == 2){
+            String[] splitOperand1Again = splitOperand1[0].split("/");
+        	if(splitOperand1Again.length == 1){
+        		numerator = splitOperand1Again[0];
+        		denominator = "1";
+        	} else{
         		numerator = splitOperand1Again[0];
         		denominator = splitOperand1Again[1];
-        	} else{
-        		numerator = "0";
-        		denominator = "1";
         	}
         } else{
-        	if(splitOperand1Again.length == 2){
-        		wholeNum = "0";
+            String[] splitOperand1Again = splitOperand1[0].split("/");
+            wholeNum = "0";
+        	if(splitOperand1Again.length == 1){
+        		numerator = splitOperand1Again[0];
+        		denominator = "1";
+        	} else{
         		numerator = splitOperand1Again[0];
         		denominator = splitOperand1Again[1];
-        	} else{
-        		wholeNum = splitOperand1[0];
-        		numerator = "0";
-        		denominator = "1";
         	}
         }
         String[] splitOperand2 = operand2.split("_");
-        String[] splitOperand2Again = splitOperand2[1].split("/");
         if(splitOperand2.length == 2){
         	wholeNum1 = splitOperand2[0];
-        	if(splitOperand2Again.length == 2){
+            String[] splitOperand2Again = splitOperand2[1].split("/");
+        	if(splitOperand2Again.length == 1){
+        		numerator1 = splitOperand2Again[0];
+        		denominator1 = "1";
+        	} else{
         		numerator1 = splitOperand2Again[0];
         		denominator1 = splitOperand2Again[1];
-        	} else{
-        		numerator1 = "0";
-        		denominator1 = "1";
         	}
         } else{
-        	if(splitOperand2.length == 2){
-        		wholeNum1 = "0";
-        		numerator1 = splitOperand2Again[0];
-        		denominator1 = splitOperand2Again[1];
-        	} else{
+            String[] splitOperand2Again = splitOperand2[0].split("/");
+        	if(splitOperand2.length == 1){
         		wholeNum1 = splitOperand2[0];
         		numerator1 = "0";
         		denominator1 = "1";
+        	} else{
+        		wholeNum1 = "0";
+        		numerator1 = splitOperand2Again[0];
+        		denominator1 = splitOperand2Again[1];
         	}
         }
         return ("whole:" + wholeNum1 + " numerator:" + numerator1 + " denominator:" + denominator1);

@@ -10,7 +10,7 @@ public class FracCalcCheck1 {
     	Scanner userInput = new Scanner(System.in);
     	String cookie = userInput.nextLine();
     	//System.out.println("Please input your equation: ");
-    	System.out.println(produceAnswer(cookie));
+    	produceAnswer(cookie);
     	
 
     }
