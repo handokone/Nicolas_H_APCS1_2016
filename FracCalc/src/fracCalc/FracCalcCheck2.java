@@ -73,7 +73,7 @@ public class FracCalcCheck2 {
         	}
         } else{
             String[] splitOperand2Again = splitOperand2[0].split("/");
-        	if(splitOperand2.length == 1){
+        	if(splitOperand2Again.length == 1){
         		wholeNum1 = splitOperand2[0];
         		numerator1 = "0";
         		denominator1 = "1";

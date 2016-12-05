@@ -3,19 +3,17 @@ import java.util.*;
 
 public class FracCalc {
 
-    public static void main(String[] args) 
+	public static void main(String[] args) 
     {
         // TODO: Read the input from the user and call produceAnswer with an equation
     	
     	String userInput = "";
     	Scanner scan = new Scanner(System.in);
     	while(userInput != "quit"){
-    		System.out.println("Please input your equation: ");
+    		//System.out.println("Please input your equation: ");
     		userInput = scan.nextLine();
-    		produceAnswer(userInput);
+    		System.out.println(produceAnswer(userInput));
     	}
-    	
-
     }
     
     // ** IMPORTANT ** DO NOT DELETE THIS FUNCTION.  This function will be used to test your code
@@ -34,60 +32,103 @@ public class FracCalc {
         String operand1 = stringSplit[0];
         String operator = stringSplit[1];
         String operand2 = stringSplit[2];
-        String[] splitOperand1 = operand1.split("_");
-        String wholeNum;
-        String numerator;
-        String denominator;
-        String wholeNum1;
-        String numerator1;
-        String denominator1;
-        if(splitOperand1.length == 2){
-        	wholeNum = splitOperand1[0];
-            String[] splitOperand1Again = splitOperand1[1].split("/");
-        	if(splitOperand1Again.length == 2){
-        		numerator = splitOperand1Again[0];
-        		denominator = splitOperand1Again[1];
-        	} else{
-        		numerator = splitOperand1Again[0];
-        		denominator = "1";
-        	}
+        int[] firstOperand = new int[3];
+        int[] secondOperand = new int[3];
+        // Creates new Arrays for each Operand. 
+        // Does this so does not have to make an int represent a type of the operator during parseOperand. 
+        firstOperand = parseOperand(operand1);
+        secondOperand = parseOperand(operand2);
+        int[] improperOperand1 = toImproperFrac(firstOperand[0], firstOperand[1], firstOperand[2]);
+        int[] improperOperand2 = toImproperFrac(secondOperand[0], secondOperand[1], secondOperand[2]);
+        int[] answer = new int[2];
+        if(operator.equals("*")){
+        	answer = multiply(improperOperand1[0], improperOperand1[1], improperOperand2[0], improperOperand2[1]);
+        } else if(operator.equals("+")){
+        	answer = add(improperOperand1[0], improperOperand1[1], improperOperand2[0], improperOperand2[1]);
+        } else if(operator.equals("/")){
+        	answer = divide(improperOperand1[0], improperOperand1[1], improperOperand2[0], improperOperand2[1]);
         } else{
-            String[] splitOperand1Again = splitOperand1[1].split("/");
-            wholeNum = "0";
-        	if(splitOperand1Again.length == 2){
-        		numerator = splitOperand1Again[0];
-        		denominator = splitOperand1Again[1];
-        	} else{
-        		numerator = splitOperand1Again[0];
-        		denominator = "1";
-        	}
+        	answer = subtract(improperOperand1[0], improperOperand1[1], improperOperand2[0], improperOperand2[1]);
         }
-        String[] splitOperand2 = operand2.split("_");
-        if(splitOperand2.length == 2){
-        	wholeNum1 = splitOperand2[0];
-            String[] splitOperand2Again = splitOperand2[1].split("/");
-        	if(splitOperand2Again.length == 2){
-        		numerator1 = splitOperand2Again[0];
-        		denominator1 = splitOperand2Again[1];
-        	} else{
-        		numerator1 = "0";
-        		denominator1 = "1";
-        	}
-        } else{
-            String[] splitOperand2Again = splitOperand2[1].split("/");
-        	if(splitOperand2.length == 2){
-        		wholeNum1 = "0";
-        		numerator1 = splitOperand2Again[0];
-        		denominator1 = splitOperand2Again[1];
-        	} else{
-        		wholeNum1 = splitOperand2[0];
-        		numerator1 = "0";
-        		denominator1 = "1";
-        	}
-        }
-        return ("whole:" + wholeNum1 + " numerator:" + numerator1 + " denominator:" + denominator1);
+        return answer[0] + "/" + answer[1];
     }
 
     // TODO: Fill in the space below with any helper methods that you think you will need
+    public static int[] toImproperFrac(int wholeNum, int numerator, int denominator){
+    	if(wholeNum < 0){
+    		numerator = (wholeNum * denominator) - numerator;
+    	} else{
+    		numerator = (wholeNum * denominator) + numerator;
+    	}
+    	int[] improperFrac = new int[2];
+    	improperFrac[0] = numerator; 
+    	improperFrac[1] = denominator;
+    	return improperFrac;
+    }
     
+    public static int[] multiply(int numer1, int denom1, int numer2, int denom2){    	
+    	int newNumer = numer1 * numer2;
+    	int newDenom = denom1 * denom2;
+    	int[] newFraction = {newNumer, newDenom};
+    	return newFraction;
+    }
+    
+    public static int[] divide(int numer1, int denom1, int numer2, int denom2){
+    	int newNumer = numer1 * denom2;
+    	int newDenom = numer2 * denom1;
+    	int[] newFraction = {newNumer, newDenom};
+    	return newFraction;
+    }
+    
+    public static int[] add(int numer1, int denom1, int numer2, int denom2){
+    	int newNumer;
+    	int newDenom;
+    	if(denom1 != denom2){
+    		newDenom = denom1 * denom2;
+    		newNumer = (numer1 * denom2) + (numer2 * denom1);
+    	} else{
+    		newDenom = denom1;
+    		newNumer = numer1 + numer2;
+    	}
+    	int[] newFraction = {newNumer, newDenom};
+    	return newFraction;
+    }
+    
+    public static int[] subtract(int numer1, int denom1, int numer2, int denom2){
+    	denom2 = denom2 * -1;
+    	return add(numer1, denom1, numer2, denom2);
+    }
+    
+    public static int[] parseOperand(String operand){
+    	String[] splitFraction = operand.split("_");
+    	String wholeNum;
+    	String numerator;
+    	String denominator;
+    	if(splitFraction.length == 2){
+        	wholeNum = splitFraction[0];
+            String[] splitFractionAgain = splitFraction[1].split("/");
+        	if(splitFractionAgain.length == 1){
+        		numerator = splitFractionAgain[0];
+        		denominator = "1";
+        	} else{
+        		numerator = splitFractionAgain[0];
+        		denominator = splitFractionAgain[1];
+        	}
+        } else{
+        	wholeNum = "0";
+            String[] splitFractionAgain = splitFraction[0].split("/");
+        	if(splitFractionAgain.length == 1){
+        		numerator = splitFractionAgain[0];
+        		denominator = "1";
+        	} else{
+        		numerator = splitFractionAgain[0];
+        		denominator = splitFractionAgain[1];
+        	}
+        }
+    	int[] fractionArray = new int[3];
+    	fractionArray[0] = Integer.parseInt(wholeNum);
+    	fractionArray[1] = Integer.parseInt(numerator);
+    	fractionArray[2] = Integer.parseInt(denominator);
+    	return fractionArray;
+    }
 }
