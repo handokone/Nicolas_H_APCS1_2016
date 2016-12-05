@@ -35,11 +35,11 @@ public class FracCalc {
         // Does this so does not have to make an int represent a type of the operator during parseOperand. 
         firstOperand = parseOperand(operand1);
         if(firstOperand[2] == 0){
-        	return("ERROR: Cannot divide by zero.");
+        	throw new IllegalArgumentException("ERROR: Cannot divide by zero.");
         }
         secondOperand = parseOperand(operand2);
         if(secondOperand[2] == 0){
-        	return("ERROR: Cannot divide by zero.");
+        	throw new IllegalArgumentException("ERROR: Cannot divide by zero.");
         }
         int[] improperOperand1 = toImproperFrac(firstOperand[0], firstOperand[1], firstOperand[2]);
         int[] improperOperand2 = toImproperFrac(secondOperand[0], secondOperand[1], secondOperand[2]);
@@ -55,7 +55,7 @@ public class FracCalc {
         } else{
         	//Extra credit
         	//Throw exception if the input is of an invalid format (i.e "++", "--", "-+", etc.)
-        	return("ERROR: Input is in an invalid format.");
+        	throw new IllegalArgumentException("ERROR: Input is in an invalid format.");
         }
         return answer[0] + "/" + answer[1];
     }
