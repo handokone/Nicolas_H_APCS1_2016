@@ -29,6 +29,9 @@ public class FracCalc {
         String operand1 = stringSplit[0];
         String operator = stringSplit[1];
         String operand2 = stringSplit[2];
+        if(operand1.equals("0") || operand2.equals("0")){
+        	return "0";
+        }
         int[] firstOperand = new int[3];
         int[] secondOperand = new int[3];
         // Creates new Arrays for each Operand. 
@@ -62,14 +65,16 @@ public class FracCalc {
         int factor = gcf(answer[0], answer[1]);
         int newNumer = answer[0] / factor;
         int newDenom = answer[1] / factor;
-        int[] mixedNumOperand = toMixedNum(newNumer, newDenom);
-        if(mixedNumOperand[1] == 0){
-        	return mixedNumOperand[0] + ""; 
-        } else if(mixedNumOperand [0] == 0){
-        	return mixedNumOperand[1] + "/" + mixedNumOperand[2];
+        if(newNumer < newDenom){
+        	return newNumer + "/" + newDenom;
         } else{
-        	return mixedNumOperand[0] + "_" + mixedNumOperand[1] + "/" + mixedNumOperand[2];
-        }
+        	int[] mixedNumOperand = toMixedNum(newNumer, newDenom);
+        	if(mixedNumOperand[2] == 0){
+        		return mixedNumOperand[1] + ""; 
+        	} else{
+        		return mixedNumOperand[0] + "_" + mixedNumOperand[1] + "/" + mixedNumOperand[2];
+        	}
+    }
     }
     // TODO: Fill in the space below with any helper methods that you think you will need
     public static int[] toImproperFrac(int wholeNum, int numerator, int denominator){

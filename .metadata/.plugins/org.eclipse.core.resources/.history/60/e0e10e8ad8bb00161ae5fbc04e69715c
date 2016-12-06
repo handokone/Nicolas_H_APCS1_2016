@@ -65,8 +65,6 @@ public class FracCalc {
         int[] mixedNumOperand = toMixedNum(newNumer, newDenom);
         if(mixedNumOperand[1] == 0){
         	return mixedNumOperand[0] + ""; 
-        } else if(mixedNumOperand [0] == 0){
-        	return mixedNumOperand[1] + "/" + mixedNumOperand[2];
         } else{
         	return mixedNumOperand[0] + "_" + mixedNumOperand[1] + "/" + mixedNumOperand[2];
         }

@@ -41,8 +41,6 @@ public class FracCalc {
         if(secondOperand[2] == 0){
         	return("ERROR: Cannot divide by zero.");
         }
-    	// Cannot divide by 0.
-    	// Return  error message if denom is 0.
         int[] improperOperand1 = toImproperFrac(firstOperand[0], firstOperand[1], firstOperand[2]);
         int[] improperOperand2 = toImproperFrac(secondOperand[0], secondOperand[1], secondOperand[2]);
         int[] answer = new int[2];
@@ -56,21 +54,12 @@ public class FracCalc {
         	answer = subtract(improperOperand1[0], improperOperand1[1], improperOperand2[0], improperOperand2[1]);
         } else{
         	//Extra credit
-        	//Return error message if the input is of an invalid format (i.e "++", "--", "-+", etc.)
+        	//Throw exception if the input is of an invalid format (i.e "++", "--", "-+", etc.)
         	return("ERROR: Input is in an invalid format.");
         }
-        int factor = gcf(answer[0], answer[1]);
-        int newNumer = answer[0] / factor;
-        int newDenom = answer[1] / factor;
-        int[] mixedNumOperand = toMixedNum(newNumer, newDenom);
-        if(mixedNumOperand[1] == 0){
-        	return mixedNumOperand[0] + ""; 
-        } else if(mixedNumOperand [0] == 0){
-        	return mixedNumOperand[1] + "/" + mixedNumOperand[2];
-        } else{
-        	return mixedNumOperand[0] + "_" + mixedNumOperand[1] + "/" + mixedNumOperand[2];
-        }
+        return answer[0] + "/" + answer[1];
     }
+
     // TODO: Fill in the space below with any helper methods that you think you will need
     public static int[] toImproperFrac(int wholeNum, int numerator, int denominator){
     	if(wholeNum < 0){
@@ -82,35 +71,6 @@ public class FracCalc {
     	improperFrac[0] = numerator; 
     	improperFrac[1] = denominator;
     	return improperFrac;
-    }
-    
-    public static int[] toMixedNum(int numerator, int denominator){
-    	int wholeNum = numerator / denominator;
-    	int newNumer = numerator % denominator;
-    	int[] mixedNum = new int[3];
-    	if(numerator % denominator != 0){
-    		mixedNum[0] = wholeNum; 
-    		mixedNum[1] = newNumer;
-    		mixedNum[2] = denominator;
-    	} else{
-    		mixedNum[0] = wholeNum;
-    	}
-    	return mixedNum;
-    }
-    
-    public static int gcf(int numerator, int denominator){
-    	if (numerator == 0){
-			return denominator;
-		}
-		if (denominator == 0){
-			return numerator;
-		}
-		if (numerator % denominator == 0){
-			return denominator;
-		}
-		else{
-			return gcf(denominator, numerator%denominator);
-		}
     }
     
     public static int[] multiply(int numer1, int denom1, int numer2, int denom2){    	
