@@ -15,6 +15,7 @@ public class FracCalc {
 
     public static String produceAnswer(String input)
     { 
+    	
         String[] stringSplit = input.split(" ");
         String operand1 = stringSplit[0];
         String operator = stringSplit[1];
@@ -61,7 +62,6 @@ public class FracCalc {
         	return mixedNumOperand[0] + "_" + absValue(mixedNumOperand[1]) + "/" + absValue(mixedNumOperand[2]);
         }
     }
-    
     // TODO: Fill in the space below with any helper methods that you think you will need
    
     public static int[] toImproperFrac(int wholeNum, int numerator, int denominator){

@@ -12,9 +12,19 @@ public class FracCalc {
     		System.out.println(produceAnswer(userInput));
     	}
     }
-
+    
+    // ** IMPORTANT ** DO NOT DELETE THIS FUNCTION.  This function will be used to test your code
+    // This function takes a String 'input' and produces the result
+    //
+    // input is a fraction string that needs to be evaluated.  For your program, this will be the user input.
+    //      e.g. input ==> "1/2 + 3/4"
+    //        
+    // The function should return the result of the fraction after it has been calculated
+    //      e.g. return ==> "1_1/4"
     public static String produceAnswer(String input)
     { 
+        // TODO: Implement this function to produce the solution to the input
+    	
         String[] stringSplit = input.split(" ");
         String operand1 = stringSplit[0];
         String operator = stringSplit[1];
@@ -61,11 +71,8 @@ public class FracCalc {
         	return mixedNumOperand[0] + "_" + absValue(mixedNumOperand[1]) + "/" + absValue(mixedNumOperand[2]);
         }
     }
-    
     // TODO: Fill in the space below with any helper methods that you think you will need
-   
     public static int[] toImproperFrac(int wholeNum, int numerator, int denominator){
-    	//Take the parsed operand and change it into an improper fraction. 
     	if(wholeNum < 0){
     		numerator = (wholeNum * denominator) - numerator;
     	} else{
@@ -78,8 +85,6 @@ public class FracCalc {
     }
     
     public static int[] toMixedNum(int numerator, int denominator){
-    	//Used this to simplify the fraction to its simplest form. 
-    	//Changes the improper frac into a mixed num. 
     	int wholeNum = numerator / denominator;
     	int newNumer = numerator % denominator;
     	int[] mixedNum = new int[3];
@@ -94,8 +99,6 @@ public class FracCalc {
     }
     
     public static int gcf(int numerator, int denominator){
-    	//When trying to find the simplest form, divide both numbers by the gcf. 
-    	//Uses this to find the gcf of the two number. 
     	if (numerator == 0){
 			return denominator;
 		}
@@ -110,8 +113,7 @@ public class FracCalc {
 		}
     }
     
-    public static int[] multiply(int numer1, int denom1, int numer2, int denom2){
-    	//Multiply two improper fraction together. 
+    public static int[] multiply(int numer1, int denom1, int numer2, int denom2){    	
     	int newNumer = numer1 * numer2;
     	int newDenom = denom1 * denom2;
     	int[] newFraction = {newNumer, newDenom};
@@ -119,8 +121,6 @@ public class FracCalc {
     }
     
     public static int[] divide(int numer1, int denom1, int numer2, int denom2){
-    	//Divide two improper fraction together. 
-    	//Multiply the first operand by the reciprocal of the second operand.
     	int newNumer = numer1 * denom2;
     	int newDenom = numer2 * denom1;
     	int[] newFraction = {newNumer, newDenom};
@@ -128,12 +128,9 @@ public class FracCalc {
     }
     
     public static int[] add(int numer1, int denom1, int numer2, int denom2){
-    	//Adds two improper frac together. 
     	int newNumer;
     	int newDenom;
     	if(denom1 != denom2){
-    		//To add fractions, you need to have the same denominator. 
-    		//Changes the fraction so both will have the same denominator.
     		newDenom = denom1 * denom2;
     		newNumer = (numer1 * denom2) + (numer2 * denom1);
     	} else{
@@ -145,12 +142,9 @@ public class FracCalc {
     }
     
     public static int[] subtract(int numer1, int denom1, int numer2, int denom2){
-    	//Subtract the improper frac together. 
     	int newNumer;
     	int newDenom;
     	if(denom1 != denom2){
-    		//To add fractions, you need to have the same denominator. 
-    		//Changes the fraction so both will have the same denominator.
     		newDenom = denom1 * denom2;
     		newNumer = (numer1 * denom2) - (numer2 * denom1);
     	} else{
@@ -162,8 +156,6 @@ public class FracCalc {
     }
     
     public static int absValue(int num){
-    	//Gets the absolute value of a number. 
-    	//If the num is negative, return the number multiplied by negative one. 
     	if(num < 0){
     		return (num * -1);
     	} else{
@@ -172,8 +164,6 @@ public class FracCalc {
     }
     
     public static int[] parseOperand(String operand){
-    	//Parses each operand into three different numbers. 
-    	//A wholeNum, numerator, and denominator in that order in an array of ints. 
     	String[] splitFraction = operand.split("_");
     	String wholeNum;
     	String numerator;
@@ -203,7 +193,6 @@ public class FracCalc {
     	fractionArray[0] = Integer.parseInt(wholeNum);
     	fractionArray[1] = Integer.parseInt(numerator);
     	fractionArray[2] = Integer.parseInt(denominator);
-    	//Changes the string to an int. 
     	return fractionArray;
     }
 }
