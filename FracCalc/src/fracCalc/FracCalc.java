@@ -1,3 +1,16 @@
+/*
+ * @author Nicolas_Handoko_APCS!
+ * 
+ * @version 1.9.2
+ * 
+ * @date 12/08/16
+ * 
+ * @purpose Create a calculator that will correctly add, subtract, multiply, 
+ * and divide fractions. Correctly reduce the answer in simplest form (reduced
+ * form or mixed number in reduced form if the numerator of the answer is 
+ * greater than the denominator). 
+ * 
+ */
 package fracCalc;
 import java.util.*;
 
@@ -50,14 +63,20 @@ public class FracCalc {
         	return("ERROR: Input is in an invalid format.");
         }
         int factor = gcf(answer[0], answer[1]);
+        //Find gcf of the numerator and denominator. 
         int newNumer = answer[0] / factor;
         int newDenom = answer[1] / factor;
+        //Divide the numerator and the denominator by the gcf to get the simplest form in improper fraction form. 
         int[] mixedNumOperand = toMixedNum(newNumer, newDenom);
         if(mixedNumOperand[1] == 0){
+        	//If there is a wholeNum and the numerator is 0, just print the wholeNum
         	return mixedNumOperand[0] + ""; 
         } else if(mixedNumOperand [0] == 0){
+        	//If the wholeNum is equal to zero, just print the fraction in fraction form in its simplest form. 
         	return mixedNumOperand[1] + "/" + mixedNumOperand[2];
         } else{
+        	//Absolute value is for the negative value so the negative sign is only on the wholeNum 
+        	//and not on the numerator and denominator too. 
         	return mixedNumOperand[0] + "_" + absValue(mixedNumOperand[1]) + "/" + absValue(mixedNumOperand[2]);
         }
     }
@@ -67,6 +86,8 @@ public class FracCalc {
     public static int[] toImproperFrac(int wholeNum, int numerator, int denominator){
     	//Take the parsed operand and change it into an improper fraction. 
     	if(wholeNum < 0){
+    		//If the whole number is negative, the numerator must be negative.
+    		//Subtract numerator instead of add numerator.
     		numerator = (wholeNum * denominator) - numerator;
     	} else{
     		numerator = (wholeNum * denominator) + numerator;
@@ -120,7 +141,7 @@ public class FracCalc {
     
     public static int[] divide(int numer1, int denom1, int numer2, int denom2){
     	//Divide two improper fraction together. 
-    	//Multiply the first operand by the reciprocal of the second operand.
+    	//Multiply the first operand by the reciprocal of the second operand to divide.
     	int newNumer = numer1 * denom2;
     	int newDenom = numer2 * denom1;
     	int[] newFraction = {newNumer, newDenom};
