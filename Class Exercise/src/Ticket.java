@@ -17,3 +17,4 @@ public class Ticket {
 		return "Number: " + number + ", Price: " + getPrice();
 	}
 }
+
